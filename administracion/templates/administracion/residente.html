@@ -1,0 +1,306 @@
+{% extends "base_generic.html" %} {% block content %}
+<div class="card" style="width: 90%">
+  <div class="card-header">SELECCIONAR SALON</div>
+  <div class="card-body">
+    <h5 class="card-title">Seleccione el salon</h5>
+    <div class="form-group divJuntos" style="width: 15%">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+        id="btnRegistrar"
+      >
+        REGISTRAR
+      </button>
+
+      <br />
+    </div>
+    <div class="divJuntos ocultar" id="datosSalon">
+      <p id="idNombre">NOMBRE:</p>
+      <p id="idEmail">EMAIL:</p>
+      <p id="idSalonSelec">SALON:</p>
+      <p id="idFecha">FECHA:</p>
+    </div>
+  </div>
+</div>
+<br />
+<div class="card" style="width: 90%">
+  <div class="card-header">FORMULARIO DE CONTACTO</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well well-sm">
+          <form class="form-horizontal" method="post">
+            <fieldset>
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"
+                  ><i class="fa fa-user bigicon"></i
+                ></span>
+                <div class="col-md-8">
+                  <input
+                    id="fname"
+                    name="name"
+                    type="text"
+                    placeholder="Nombre"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"
+                  ><i class="fa fa-user bigicon"></i
+                ></span>
+                <div class="col-md-8">
+                  <input
+                    id="lname"
+                    name="name"
+                    type="text"
+                    placeholder="Apellido"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"
+                  ><i class="fa fa-envelope-o bigicon"></i
+                ></span>
+                <div class="col-md-8">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"
+                  ><i class="fa fa-phone-square bigicon"></i
+                ></span>
+                <div class="col-md-8">
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    placeholder="Telefono"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"
+                  ><i class="fa fa-pencil-square-o bigicon"></i
+                ></span>
+                <div class="col-md-8">
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    placeholder="Comentario"
+                    rows="7"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-md-12 text-center">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg"
+                    onclick="mostrarRegistro()"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer align="center"><h9>© Todos los derechos reservados</h9></footer>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputNombre">Nombre Completo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputNombre"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              required
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Fecha</label>
+            <input
+              class="form-control"
+              id="inputFecha"
+              name="date"
+              placeholder="MM/DD/YYY"
+              type="text"
+            />
+          </div>
+          <div>
+            <label for="exampleInputSalon">Salon</label>
+            <select class="form-control" id="idSalon">
+              <option>SELECCIONE</option>
+              <option>SALON 1</option>
+              <option>SALON 2</option>
+              <option>SALON 3</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          CERRAR
+        </button>
+        <button type="submit" class="btn btn-primary" onclick="getDataModal()">
+          GUARDAR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin del modal -->
+<script
+  type="text/javascript"
+  src="https://code.jquery.com/jquery-1.11.3.min.js"
+></script>
+
+<!-- Include Date Range Picker -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"
+></script>
+
+<script
+  type="text/javascript"
+  src="https://formden.com/static/cdn/formden.js"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"
+></script>
+<script>
+  //se ejecuta cuando se abre la pagina
+  $(document).ready(function () {
+    var date_input = $('input[name="date"]');
+    var container =
+      $(".bootstrap-iso form").length > 0
+        ? $(".bootstrap-iso form").parent()
+        : "body";
+    date_input.datepicker({
+      format: "mm/dd/yyyy",
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+    });
+  });
+
+  // function hola(){
+
+  //   var nombre = $("#inputNombre").val();
+  //   alert(nombre)
+
+  // }
+
+  function getDataModal() {
+    //obtengo los datos del formulario
+    var nombre = $("#inputNombre").val();
+    var email = $("#inputEmail").val();
+    var fecha = $("#inputFecha").val();
+    var salon = $("#idSalon option:selected").text();
+
+    if (nombre == "" || email == "" || fecha == "" || salon == "SELECCIONE") {
+      alert("HAY CAMPOS SIN INFORMACION");
+      // } else if (!validarEmail(email)) {
+      //   alert("EMAIL NO TIENE EL FORMATO CORRECTO");
+      // }
+    } else {
+      //muestro los datos del formulario
+      $("#idNombre").text("NOMBRE: " + nombre);
+      $("#idEmail").text("EMAIL: " + email);
+      $("#idFecha").text("FECHA: " + fecha);
+      $("#idSalonSelec").text("Salon : " + salon);
+
+      $("#datosSalon").show(); //muestro el div que estaba oculto
+      $("#exampleModal").modal("hide"); //cierre modal
+      $("body").removeClass("modal-open"); // remover fondo oscuro
+      $(".modal-backdrop").remove(); // remover fondo oscuro
+      $("#btnRegistrar").prop("disabled", true); // desabilitar boton registrar
+    }
+  }
+
+  function validarEmail(valor) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)) {
+      alert("La dirección de email " + valor + " es correcta.");
+      return true;
+    } else {
+      alert("La dirección de email es incorrecta.");
+      return false;
+    }
+  }
+
+  function mostrarRegistro() {
+    var name = $("#fname").val();
+    var lname = $("#lname").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    var phone = $("#phone").val();
+
+    alert(name);
+  }
+</script>
+
+{% endblock %}

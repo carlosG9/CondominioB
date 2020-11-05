@@ -1,0 +1,155 @@
+{% extends "base_generic.html" %} {% block content %}
+    <div class="card text-center">
+      <div class="card-header">REGISTRO DE VISITAS</div>
+      <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <!-- <input
+                type="text"
+                class="form-control"
+                placeholder="RUT"
+                id="rut"
+              /> -->
+              {{ form.rut }}
+            </div>
+            <div class="col">
+              <!-- <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre"
+                id="nombre"
+              /> -->
+              {{ form.name }}
+            </div>
+            <div class="col">
+              <!-- <input
+                type="text"
+                class="form-control"
+                placeholder="Apellido"
+                id="apellido"
+              /> -->
+              {{ form.last_name }}
+            </div>
+            <div class="col">
+              <!-- <input
+                type="text"
+                class="form-control"
+                placeholder="Torre"
+                id="torre"
+              /> -->
+              {{ form.tower }}
+            </div>
+            
+            <div class="col">
+              <!-- <input
+                type="text"
+                class="form-control"
+                placeholder="Departamento"
+                id="departamento"
+              /> -->
+              {{ form.department }}
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              
+            >
+              Registrar
+            </button>
+          </div>
+        </form>
+        <br />
+        {% if visitas %}
+        <table id="mytabla" align="center">
+          <thead>
+            <tr>
+              <th>RUT</th>
+              <th>NOMBRE</th>
+              <th>APELLIDO</th>
+              <th>TORRE</th>
+              <th>DEPARTAMENTO</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for v in visitas%}
+              <tr>
+                <td>{{ v.rut }}</td>
+                <td>{{ v.name }}</td>
+                <td>{{ v.las_name }}</td>
+                <td>{{ v.tower }}</td>
+                <td>{{ v.name }}</td>
+            </tr>
+                {% endfor%}
+        </tbody>
+        </table>
+        {% else %}
+        <h3>NO HAY VISITAS</h3>
+        {% endif %}
+      </div>
+      <div class="card-footer text-muted" id="idContador"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      var contador;
+
+      $(document).ready(function () {
+        contador = 0;
+      });
+
+    //   function agregarFila() {
+    //     var rut = $("#rut").val();
+    //     var nombre = $("#nombre").val();
+    //     var apellido = $("#apellido").val();
+    //     var torre = $("#torre").val();
+    //     var departamento = $("#departamento").val();
+
+    //     if (
+    //       rut == "" ||
+    //       nombre == "" ||
+    //       apellido == "" ||
+    //       torre == "" ||
+    //       departamento == ""
+    //     ) {
+    //       alert("HAY CAMPOS VACIOS");
+    //     } else {
+    //       contador++;
+
+    //       var fila =
+    //         "<tr>" +
+    //         "<td>" +
+    //         rut +
+    //         "</td>" +
+    //         "<td>" +
+    //         nombre +
+    //         "</td>" +
+    //         "<td>" +
+    //         apellido +
+    //         "</td>" +
+    //         "<td>" +
+    //         torre +
+    //         "</td>" +
+    //         "<td>" +
+    //         departamento +
+    //         "</td>" +
+    //         "</tr>";
+
+    //       $("#mytabla tbody").append(fila);
+
+    //       $("#idContador").text(contador + " Visitas");
+    //       limpiar();
+    //     }
+    //   }
+
+    //   function limpiar() {
+    //     $("#rut").val("");
+    //     $("#nombre").val("");
+    //     $("#apellido").val("");
+    //     $("#torre").val("");
+    //     $("#departamento").val("");
+    //   }
+    </script>
+  </body>
+</html>
+{% endblock %}
