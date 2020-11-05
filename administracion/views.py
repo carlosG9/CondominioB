@@ -24,12 +24,38 @@ def administrador(request):
         form = AdministratorForm()
         visitas = visits.objects.all()
     return render(request, 'administracion/administrador.html', {'form': form, 'visitas': visitas})
-    # model = visits
-    # template_name = 'administracion/administrador.html'
+
+
+def administrador_editar(request, id_visits):
+
+    visitas = visits.objects.get(id=id_visits)
+    if request.method == 'GET':
+        form = AdministratorForm(instance=visitas)
+    else:
+        form = AdministratorForm(request.POST, instance=visitas)
+        if form.is_valid():
+            form.save()
+        return redirect('admin')
+    return render(request, 'administracion/administrador.html', {'form': form})
+
+
+def administrador_eliminar(request, id_visits):
+
+    visitas = visits.objects.get(id=id_visits)
+    if request.method == 'POST':
+        visitas.delete()
+        return redirect('admin')
+    return render(request, 'administracion/administrador_eliminar.html', {'visitas': visitas})
 
 
 def residente(request):
-    return render(
-        request,
-        'residente.html',
-    )
+    if request.method == 'POST':
+        form = AdministratorForm(request.POST)
+        visitas = visits.objects.all()
+        if form.is_valid():
+            form.save()
+        return redirect('residente')
+    else:
+        form = AdministratorForm()
+        visitas = visits.objects.all()
+    return render(request, 'administracion/residente.html', {'visitas': visitas})

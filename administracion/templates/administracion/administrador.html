@@ -51,6 +51,15 @@
               /> -->
               {{ form.department }}
             </div>
+            <div class="col">
+                <!-- <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Departamento"
+                  id="departamento"
+                /> -->
+                {{ form.department }}
+              </div>
             <button
               type="submit"
               class="btn btn-primary"
@@ -69,7 +78,9 @@
               <th>NOMBRE</th>
               <th>APELLIDO</th>
               <th>TORRE</th>
-              <th>DEPARTAMENTO</th>
+              <th>DEPARTAMENTO</th>   
+              <th>EDITAR</th>
+              <th>ELIMINAR</th>
             </tr>
           </thead>
           <tbody>
@@ -80,6 +91,8 @@
                 <td>{{ v.las_name }}</td>
                 <td>{{ v.tower }}</td>
                 <td>{{ v.name }}</td>
+                <td><a class="btn btn-primary" href="{% url 'admin_editar' v.id %}">Editar</a>
+                <td><a class="btn btn-danger" href="{% url 'admin_eliminar' v.id %}">Eliminar</a></td>
             </tr>
                 {% endfor%}
         </tbody>

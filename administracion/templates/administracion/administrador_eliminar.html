@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %} {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <h2>¿Desea eliminar registro de {{visitas.name}}?</h2>
+  <button class="btm btn-danger" type="submit">Eliminar</button>
+  <button class="btm btn-default" href="{% url 'admin' %}" type="submit">
+    Cancelar
+  </button>
+</form>
+
+{% endblock %}
