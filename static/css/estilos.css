@@ -1,0 +1,48 @@
+.titulo {
+  background-color: orange;
+  border: solid #f33f08;
+  color: #f33f08;
+  padding: 5px;
+  border-width: 8px;
+  border-radius: 60px;
+}
+
+.titulo2 {
+  background-color: cyan;
+  border: solid #0b2ce9;
+  color: blue;
+  padding: 5px;
+  border-width: 8px;
+  border-radius: 60px;
+}
+
+.titulo3 {
+  background-color: yellow;
+  border: solid #e90b0b;
+  color: red;
+  padding: 5px;
+  border-width: 8px;
+  border-radius: 60px;
+}
+
+.divJuntos {
+  float: left;
+}
+
+.ocultar {
+  margin-left: 50px;
+  display: none;
+}
+
+.table {
+  border: 1px solid #000;
+}
+
+th,
+td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #000;
+  border-spacing: 0;
+}
